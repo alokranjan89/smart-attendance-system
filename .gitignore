@@ -1,0 +1,13 @@
+# Node modules
+node_modules/
+backend/node_modules/
+fronted/node_modules/
+
+# Python cache
+ml/__pycache__/
+
+# Environment variables
+backend/.env
+
+# ML encoding file
+ml/encodings.pkl
