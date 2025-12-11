@@ -202,5 +202,3 @@ Runs on:
 Smart Attendance System — AI + ML + MERN + DevOps
 
 ---
-
-Just say **"Make README premium"**.
