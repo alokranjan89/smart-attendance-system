@@ -2,8 +2,10 @@ from flask import Flask, jsonify
 from recognizer import recognize_face
 from liveness import is_alive, head_turn_detected
 import cv2
+from flask_cors import CORS 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/", methods=["GET"])
 def home():
