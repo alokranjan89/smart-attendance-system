@@ -5,3 +5,5 @@ export async function fetchAttendance() {
     if(!res.ok) throw new Error("Failed to fetch attendance");
     return res.json();
 }
+
+
