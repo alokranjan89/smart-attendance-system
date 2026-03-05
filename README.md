@@ -200,6 +200,3 @@ Runs on:
 
 **Alok Ranjan**
 Smart Attendance System — AI + ML + MERN + DevOps
-
----
->>>>>>> 762d0ff5f8d0abf1dff0bb96d5262608443b26c3
