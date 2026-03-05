@@ -6,8 +6,9 @@ mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB Connected");
-    app.listen(process.env.PORT, () => {
-      console.log(`Backend running on http://localhost:${process.env.PORT}`);
+    const PORT = process.env.PORT || 8000;
+    app.listen(PORT, () => {
+      console.log(`Backend running on http://localhost:${PORT}`);
     });
   })
   .catch((err) => console.log(err));

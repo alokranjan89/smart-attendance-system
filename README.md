@@ -128,7 +128,32 @@ attendance/
 
 ---
 
-# 🔥 **How to Run the Project**
+# � **Docker Setup**
+
+A `docker-compose.yml` configures all three services plus MongoDB. Make sure Docker Desktop (or Docker Engine) is running.
+
+1. **Build & start everything**
+
+   ```bash
+   docker compose up --build
+   ```
+
+   - frontend → `http://localhost:3000`
+   - backend  → `http://localhost:8000`
+   - ml service → `http://localhost:5000`
+   - MongoDB  → `mongodb://localhost:27017/attendance`
+
+2. **Stop / remove containers**
+
+   ```bash
+   docker compose down
+   ```
+
+> ⚠️ The ML container requires camera access. On Linux use `--device /dev/video0:/dev/video0` or run in privileged mode. Windows/macOS need extra setup (e.g., use host as the video source or send frames via API).
+
+---
+
+# �🔥 **How to Run the Project**
 
 ## 1️⃣ Run Machine Learning Service (Flask API)
 

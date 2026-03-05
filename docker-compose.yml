@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:6.0
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/attendance
+      - PORT=8000
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: "http://backend:8000/attendance"
+        VITE_ML_URL: "http://ml:5000/detect"
+    ports:
+      - "3000:80"
+    networks:
+      - app-network
+
+  ml:
+    build: ./ml
+    ports:
+      - "5000:5000"
+    # camera device on Linux; adjust for other OS
+    # devices:
+    #   - "/dev/video0:/dev/video0"
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:
+    driver: bridge

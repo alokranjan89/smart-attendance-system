@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:8000/attendance";
+// allow overriding at build time with VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/attendance";
 
 export async function fetchAttendance() {
     console.log("🔄 Fetching attendance from:", API_URL);

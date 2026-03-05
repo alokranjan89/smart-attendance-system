@@ -1,4 +1,5 @@
-const ML_URL = "http://localhost:5000/detect";
+// allow overriding at build time with VITE_ML_URL
+const ML_URL = import.meta.env.VITE_ML_URL || "http://localhost:5000/detect";
 import { saveAttendance } from './attendanceService.js';
 
 export async function captureAttendance() {
