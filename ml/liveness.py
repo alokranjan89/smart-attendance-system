@@ -1,32 +1,21 @@
 import cv2
-import numpy as np
-import face_recognition
-from scipy.spatial import distance as dist
-
-# ---------------------------
-# PART 1 — BLINK DETECTION
-# ---------------------------
-
-def eye_aspect_ratio(eye):
-    A = dist.euclidean(eye[1], eye[5])
-    B = dist.euclidean(eye[2], eye[4])
-    C = dist.euclidean(eye[0], eye[3])
-    return (A + B) / (2.0 * C)
+import random
 
 def is_alive(frame):
-    rgb_frame = frame[:, :, ::-1]
-    face_landmarks_list = face_recognition.face_landmarks(rgb_frame)
+    """
+    Mock blink detection
+    In a real implementation, this would analyze eye aspect ratios
+    """
+    # Simulate blink detection (70% success rate)
+    return random.random() < 0.7
 
-    if not face_landmarks_list:
-        return False
-
-    landmarks = face_landmarks_list[0]
-
-    left_eye = landmarks["left_eye"]
-    right_eye = landmarks["right_eye"]
-
-    leftEAR = eye_aspect_ratio(left_eye)
-    rightEAR = eye_aspect_ratio(right_eye)
+def head_turn_detected(frame):
+    """
+    Mock head movement detection
+    In a real implementation, this would analyze facial landmarks
+    """
+    # Simulate head movement detection (60% success rate)
+    return random.random() < 0.6
 
     EAR = (leftEAR + rightEAR) / 2.0
 

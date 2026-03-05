@@ -19,7 +19,9 @@ def detect():
     cap.release()
 
     if not ret:
-        return jsonify({"name": "Camera Error", "time": ""})
+        from datetime import datetime
+        now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        return jsonify({"name": "Camera Error", "time": now})
 
     # -------------------------
     # LIVENESS DETECTION

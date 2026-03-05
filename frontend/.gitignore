@@ -1,4 +1,5 @@
 # Logs
+
 logs
 *.log
 npm-debug.log*
@@ -7,12 +8,31 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# Node modules
+
+node_modules/
+
+# Build output
+
 dist
 dist-ssr
 *.local
 
+# Python cache
+
+__pycache__/
+*.pyc
+
+# Environment variables
+
+.env
+
+# ML encoding file
+
+encodings.pkl
+
 # Editor directories and files
+
 .vscode/*
 !.vscode/extensions.json
 .idea

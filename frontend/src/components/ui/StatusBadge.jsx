@@ -1,14 +1,27 @@
-import React from 'react'
+import React from "react";
+import { FaUserCheck, FaUserTimes, FaExclamationTriangle } from "react-icons/fa";
 
-const StatusBadge = ({name}) => {
-        if (name === "Spoof Detected")
-               return <span className="bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-semibold">SPOOF</span>;
+const StatusBadge = ({ name }) => {
 
-        if (name === "Unknown")
-            return <span className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-semibold">UNKNOWN</span>;
+  if (name === "Spoof Detected")
+    return (
+      <span className="flex items-center gap-1 bg-red-100 text-red-700 px-3 py-1 rounded-full text-xs font-semibold">
+        <FaExclamationTriangle /> SPOOF
+      </span>
+    );
 
-         return <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">PRESENT</span>;
-    
-}
+  if (name === "Unknown")
+    return (
+      <span className="flex items-center gap-1 bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-semibold">
+        <FaUserTimes /> UNKNOWN
+      </span>
+    );
 
-export default StatusBadge
+  return (
+    <span className="flex items-center gap-1 bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">
+      <FaUserCheck /> PRESENT
+    </span>
+  );
+};
+
+export default StatusBadge;
